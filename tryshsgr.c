@@ -1,3 +1,5 @@
+#include "exit.h"
+
 void main()
 {
   short x[4];

@@ -691,7 +691,7 @@ trysgprm.c compile load
 	rm -f trysgprm.o trysgprm
 
 hasshsgr.h: \
-chkshsgr warn-shsgr tryshsgr.c compile load
+chkshsgr warn-shsgr tryshsgr.c compile load exit.h
 	./chkshsgr || ( cat warn-shsgr; exit 1 )
 	( ( ./compile tryshsgr.c \
 	&& ./load tryshsgr && ./tryshsgr ) >/dev/null 2>&1 \
