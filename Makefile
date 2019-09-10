@@ -4,7 +4,7 @@ SHELL=/bin/sh
 
 default: it
 
-.PHONY: check clean default it man
+.PHONY: check clean default it man test
 
 addresses.0: \
 addresses.5
@@ -350,6 +350,7 @@ exit.h auto_spawn.h
 clean: \
 TARGETS
 	rm -f `cat TARGETS`
+	$(MAKE) -C tests clean
 
 coe.o: \
 compile coe.c coe.h
@@ -2043,6 +2044,9 @@ byte.h datetime.h readwrite.h
 tcpto_clean.o: \
 compile tcpto_clean.c tcpto.h open.h substdio.h readwrite.h
 	./compile tcpto_clean.c
+
+test: it
+	@$(MAKE) -C tests test
 
 timeoutconn.o: \
 compile timeoutconn.c ndelay.h select.h error.h readwrite.h ip.h \
